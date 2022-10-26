@@ -2,12 +2,11 @@ package Main;
 
 import Main.PokerData.Face;
 import Main.PokerData.Suit;
-import Main.PokerData.Tables;
 
 public class Card {
-    private final int value;
     private final Face face;
     private final Suit suit;
+    private final int value;
 
     public Card(Face face, Suit suit) {
         if (face == null || suit == null) {
@@ -17,8 +16,7 @@ public class Card {
         this.face = face;
         this.suit = suit;
 
-        int rank = face.getRank();
-        value = (1 << (rank + 16)) | suit.getRank() | (rank << 8) | Tables.getPrimesAt(rank);
+        this.value = face.getRank() + suit.getRank();
     }
 
     public String toString() {
@@ -27,6 +25,14 @@ public class Card {
 
     public String getFullName(){
         return face.getFullName() + " " + suit.getFullName();
+    }
+
+    public Face getFace() {
+        return face;
+    }
+
+    public Suit getSuit() {
+        return suit;
     }
 
     public int getValue() {

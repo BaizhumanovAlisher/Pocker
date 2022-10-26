@@ -1,19 +1,21 @@
 package Main.PokerData;
 
-public class HandRank {
-    public static final String STRAIGHT_FLUSH = "straight flush";
-    public static final String FOUR_OF_A_KIND = "four of a kind";
-    public static final String FULL_HOUSE = "full house";
-    public static final String FLUSH = "flush";
-    public static final String STRAIGHT = "straight";
-    public static final String THREE_OF_A_KIND = "three of a kind";
-    public static final String TWO_PAIR = "two pair";
-    public static final String ONE_PAIR = "one pair";
-    public static final String HIGH_CARD = "high card";
+public enum HandRank {
+    STRAIGHT_FLUSH("straight flush", 9000),
+    FOUR_OF_A_KIND("four of a kind", 8000),
+    FULL_HOUSE("full house", 7000),
+    FLUSH("flush", 6000),
+    STRAIGHT("straight", 5000),
+    THREE_OF_A_KIND("three of a kind", 4000),
+    TWO_PAIR("two pair", 3000),
+    ONE_PAIR("one pair", 2000),
+    HIGH_CARD("high card", 1000);
 
     private final int value;
+    private final String rank;
 
-    public HandRank(int value) {
+    HandRank(String rank, int value) {
+        this.rank = rank;
         this.value = value;
     }
 
@@ -22,28 +24,6 @@ public class HandRank {
     }
 
     public String toString() {
-        String result;
-
-        if (value > 6185) {
-            result = HIGH_CARD;
-        } else if (value > 3325) {
-            result = ONE_PAIR;
-        } else if (value > 2467) {
-            result = TWO_PAIR;
-        } else if (value > 1609) {
-            result = THREE_OF_A_KIND;
-        } else if (value > 1599) {
-            result = STRAIGHT;
-        } else if (value > 322) {
-            result = FLUSH;
-        } else if (value > 166) {
-            result = FULL_HOUSE;
-        } else if (value > 10) {
-            result = FOUR_OF_A_KIND;
-        } else {
-            result = STRAIGHT_FLUSH;
-        }
-
-        return result;
+        return rank;
     }
 }

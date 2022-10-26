@@ -1,7 +1,6 @@
 package Main;
 
 import Main.PokerData.HandRank;
-import Main.PokerData.Tables;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,9 +28,7 @@ public class Hand {
         Card c4 = hand.get(3);
         Card c5 = hand.get(4);
 
-        int result = getNumberRank(c1, c2, c3, c4, c5);
-
-        return new HandRank(result);
+        return HandEvaluate.getRank(c1, c2, c3, c4, c5);
     }
 
     private static boolean hasDuplicates(List<Card> hand) {
@@ -52,29 +49,6 @@ public class Hand {
         return false;
     }
 
-    private int getNumberRank(Card c1, Card c2, Card c3, Card c4, Card c5) {
-        int v1 = c1.getValue();
-        int v2 = c2.getValue();
-        int v3 = c3.getValue();
-        int v4 = c4.getValue();
-        int v5 = c5.getValue();
-
-        int index = (v1 | v2 | v3 | v4 | v5) >> 16;
-
-        if ((v1 & v2 & v3 & v4 & v5 & 0xF000) != 0) {
-            return Tables.getFlushesAt(index);
-        }
-
-        int value = Tables.getUniqueAt(index);
-
-        if (value != 0) {
-            return value;
-        }
-
-        int product = (v1 & 0xFF) * (v2 & 0xFF) * (v3 & 0xFF) * (v4 & 0xFF) * (v5 & 0xFF);
-
-        return Tables.getValuesAt(hash(product));
-    }
 
     public String toString() {
         return hand.toString();
@@ -118,13 +92,5 @@ public class Hand {
 
     public int size() {
         return hand.size();
-    }
-
-    private static int hash(int key) {
-        key += 0xE91AAA35;
-        key ^= key >>> 16;
-        key += key << 8;
-        key ^= key >>> 4;
-        return ((key + (key << 2)) >>> 19) ^ Tables.getAdjustAt((key >>> 8) & 0x1FF);
     }
 }

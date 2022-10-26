@@ -1,10 +1,10 @@
 package Main.PokerData;
 
 public enum Suit {
-    CLUB(0x8000, "C", "club"),
-    DIAMOND(0x4000, "D", "diamond"),
-    HEART(0x2000, "H", "heart"),
-    SPADE(0x1000, "S", "spade");
+    CLUB(400, "C", "club"),
+    DIAMOND(300, "D", "diamond"),
+    HEART(200, "H", "heart"),
+    SPADE(100, "S", "spade");
 
     Suit(int rank, String shortName, String fullName) {
         this.rank = rank;
