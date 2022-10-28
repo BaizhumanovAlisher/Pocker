@@ -1,10 +1,10 @@
-package Tests;
+package tests;
 
-import Main.Hand;
-import Main.Card;
-import Main.PokerData.Face;
-import Main.PokerData.HandRank;
-import Main.PokerData.Suit;
+import kz.mathncode.baizhumanovalisher.poker.Hand;
+import kz.mathncode.baizhumanovalisher.poker.card.Card;
+import kz.mathncode.baizhumanovalisher.poker.card.Face;
+import kz.mathncode.baizhumanovalisher.poker.card.HandRank;
+import kz.mathncode.baizhumanovalisher.poker.card.Suit;
 
 public class Test {
     public static void main(String[] args) {
@@ -12,6 +12,8 @@ public class Test {
 
         test.testAllClassicHandRank();
     }
+
+    //Вместо number лучше использовать String -- описание теста
     private void testClassicHandRank(int testNumber, HandRank rank, Card c1, Card c2, Card c3, Card c4, Card c5) {
         Hand hand = new Hand();
 
@@ -28,6 +30,7 @@ public class Test {
         System.out.println(test);
     }
 
+    //Только позитивные кейсы, не хватает отрицательных
     private void testAllClassicHandRank() {
         testClassicHandRank(1, HandRank.STRAIGHT_FLUSH,
                 new Card(Face.ACE, Suit.CLUB),
@@ -91,5 +94,6 @@ public class Test {
                 new Card(Face.TEN, Suit.DIAMOND),
                 new Card(Face.FOUR, Suit.HEART),
                 new Card(Face.DEUCE, Suit.DIAMOND));
+
     }
 }

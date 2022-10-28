@@ -1,6 +1,7 @@
-package Main.PokerData;
+package kz.mathncode.baizhumanovalisher.poker.card;
 
 public enum Suit {
+    //rank?
     CLUB(400, "C", "club"),
     DIAMOND(300, "D", "diamond"),
     HEART(200, "H", "heart"),
@@ -28,7 +29,11 @@ public enum Suit {
         return fullName;
     }
 
+
+    //fromStringToSuit --> fromString(String s)
+    //В целом эту функцию можно не писать и воспользоваться valueOf в Enum
     public static Suit fromStringToSuit(String s) {
+        // return Suit.valueOf(s); полностью заменяет эту функцию
         Suit[] faces = Suit.values();
 
         for (Suit suit : faces) {

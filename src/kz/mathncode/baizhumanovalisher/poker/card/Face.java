@@ -1,4 +1,4 @@
-package Main.PokerData;
+package kz.mathncode.baizhumanovalisher.poker.card;
 
 public enum Face {
     DEUCE(0, "2", "2"),
@@ -37,6 +37,8 @@ public enum Face {
         return fullName;
     }
 
+    //fromStringToSuit --> fromString(String s)
+    //В целом эту функцию можно не писать и воспользоваться valueOf в Enum
     public static Face fromStringToFace(String s) {
         Face[] faces = Face.values();
 

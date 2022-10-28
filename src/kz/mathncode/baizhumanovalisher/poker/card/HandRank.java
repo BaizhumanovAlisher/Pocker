@@ -1,4 +1,4 @@
-package Main.PokerData;
+package kz.mathncode.baizhumanovalisher.poker.card;
 
 public enum HandRank {
     STRAIGHT_FLUSH("straight flush", 9000),

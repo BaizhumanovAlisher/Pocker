@@ -1,10 +1,12 @@
-package Main;
+package kz.mathncode.baizhumanovalisher.poker;
 
-import Main.PokerData.Face;
-import Main.PokerData.Suit;
+import kz.mathncode.baizhumanovalisher.poker.card.Card;
+import kz.mathncode.baizhumanovalisher.poker.card.Face;
+import kz.mathncode.baizhumanovalisher.poker.card.Suit;
 
 import java.util.*;
 
+//Unused code -- стоит выпилить все, что не используется
 public class DeckCards {
     public static final Card[] DECK_CARDS;
 

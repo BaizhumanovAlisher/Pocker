@@ -1,7 +1,9 @@
-package Main;
+package kz.mathncode.baizhumanovalisher.poker.card;
 
-import Main.PokerData.Face;
-import Main.PokerData.Suit;
+import kz.mathncode.baizhumanovalisher.poker.card.Face;
+import kz.mathncode.baizhumanovalisher.poker.card.Suit;
+
+import java.util.Objects;
 
 public class Card {
     private final Face face;
@@ -38,4 +40,18 @@ public class Card {
     public int getValue() {
         return value;
     }
+
+//    Не хватает equals и hashCode для валидного сравнивания
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Card card = (Card) o;
+//        return value == card.value && face == card.face && suit == card.suit;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(face, suit, value);
+//    }
 }
