@@ -1,12 +1,13 @@
-package Main;
+package kz.mathncode.baizhumanovalisher.poker;
 
-import Main.PokerData.HandRank;
+import kz.mathncode.baizhumanovalisher.poker.card.Card;
+import kz.mathncode.baizhumanovalisher.poker.card.HandRank;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Hand {
+
+    //Why final?
     private final List<Card> hand;
 
     public Hand() {
@@ -15,13 +16,17 @@ public class Hand {
 
     public HandRank evaluate() {
         if (hasDuplicates(hand)) {
+            //Здесь есть смысл создать свой Exception и использовать его
             throw new IllegalArgumentException("The hand has duplicates.");
         }
 
+        //Магическая константа
+        //https://ru.wikipedia.org/wiki/Магическое_число_(программирование)
         if (hand.size() != 5) {
             throw new IllegalArgumentException("Incorrect hand size.");
         }
 
+        //Почему здесь не цикл?
         Card c1 = hand.get(0);
         Card c2 = hand.get(1);
         Card c3 = hand.get(2);
@@ -32,6 +37,10 @@ public class Hand {
     }
 
     private static boolean hasDuplicates(List<Card> hand) {
+//        Можно упростить, если будет equals и hashcode в карте
+//        Set<Card> cardSet = new HashSet<>(hand);
+//        return cardSet.size() == hand.size();
+
         List<Integer> array = new ArrayList<>();
 
         for (Card card : hand) {
@@ -54,6 +63,7 @@ public class Hand {
         return hand.toString();
     }
 
+    //Неиспользуемый код
     public String getFullName() {
         StringBuilder result = new StringBuilder();
 
@@ -68,6 +78,8 @@ public class Hand {
         return result.toString().strip();
     }
 
+
+    //Зачем? Чтобы не передали null?
     public void add(Card c) {
         if (c != null) {
             hand.add(c);
@@ -76,6 +88,7 @@ public class Hand {
         }
     }
 
+    //Странный метод, не используется и суть его не очень ясна
     public void add(List<Card> cards) {
         for (Card card : cards) {
             if (card != null) {
@@ -86,6 +99,7 @@ public class Hand {
         }
     }
 
+    // Ненужные методы, нарушают инкапсуляцию
     public void clear() {
         hand.clear();
     }
