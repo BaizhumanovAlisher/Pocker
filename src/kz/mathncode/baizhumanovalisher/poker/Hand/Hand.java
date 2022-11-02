@@ -6,11 +6,6 @@ import java.util.*;
 
 public class Hand {
     private final List<Card> hand;
-    private static final Comparator<Card> comparator;
-
-    static {
-        comparator = Comparator.comparing(obj -> obj.getFace().getRank() * (-1));
-    }
 
     public Hand() {
         this.hand = new ArrayList<>();
@@ -26,9 +21,8 @@ public class Hand {
         hand.add(c5);
     }
 
-    public HandRank evaluate() {
-        hand.sort(comparator);
-        return HandEvaluate.getRank(hand);
+    public HandIndicator evaluate() {
+        return HandEvaluate.getHandIndicator(hand);
     }
 
     protected List<Card> getList() {
