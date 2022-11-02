@@ -1,3 +1,3 @@
-package kz.mathncode.baizhumanovalisher.poker.Exceptions;
+package kz.mathncode.baizhumanovalisher.poker.exceptions;
 
 public class HandHasDuplicatesException extends RuntimeException {}

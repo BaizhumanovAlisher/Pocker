@@ -1,7 +1,7 @@
-package kz.mathncode.baizhumanovalisher.poker.Hand;
+package kz.mathncode.baizhumanovalisher.poker.hand;
 
-import kz.mathncode.baizhumanovalisher.poker.Exceptions.HandHasDuplicatesException;
-import kz.mathncode.baizhumanovalisher.poker.Exceptions.IncorrectHandSizeException;
+import kz.mathncode.baizhumanovalisher.poker.exceptions.HandHasDuplicatesException;
+import kz.mathncode.baizhumanovalisher.poker.exceptions.IncorrectHandSizeException;
 import kz.mathncode.baizhumanovalisher.poker.card.Card;
 import kz.mathncode.baizhumanovalisher.poker.card.Face;
 import kz.mathncode.baizhumanovalisher.poker.card.Suit;

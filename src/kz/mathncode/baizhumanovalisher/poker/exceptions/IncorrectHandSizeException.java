@@ -1,4 +1,4 @@
-package kz.mathncode.baizhumanovalisher.poker.Exceptions;
+package kz.mathncode.baizhumanovalisher.poker.exceptions;
 
 public class IncorrectHandSizeException extends RuntimeException {
 }

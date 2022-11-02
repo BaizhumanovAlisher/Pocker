@@ -1,4 +1,4 @@
-package kz.mathncode.baizhumanovalisher.poker.Hand;
+package kz.mathncode.baizhumanovalisher.poker.hand;
 
 public class HandIndicator {
     private final HandRank rank;

@@ -1,6 +1,6 @@
 package tests;
 
-import kz.mathncode.baizhumanovalisher.poker.Hand.Hand;
+import kz.mathncode.baizhumanovalisher.poker.hand.Hand;
 import kz.mathncode.baizhumanovalisher.poker.card.Card;
 import kz.mathncode.baizhumanovalisher.poker.card.Face;
 import kz.mathncode.baizhumanovalisher.poker.card.Suit;
