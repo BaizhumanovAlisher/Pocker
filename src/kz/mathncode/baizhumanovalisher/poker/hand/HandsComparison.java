@@ -18,16 +18,16 @@ public class HandsComparison {
         HandIndicator handIndicator1 = hand1.evaluate();
         HandIndicator handIndicator2 = hand2.evaluate();
 
-        int handRank1 = handIndicator1.getRank().getValue();
-        int handRank2 = handIndicator2.getRank().getValue();
+        int handRank1 = handIndicator1.rank().getValue();
+        int handRank2 = handIndicator2.rank().getValue();
 
         if (handRank1 > handRank2) {
             return hand1;
         } else if (handRank1 < handRank2) {
             return hand2;
         } else {
-            int handValue1 = handIndicator1.getValue();
-            int handValue2 = handIndicator2.getValue();
+            int handValue1 = handIndicator1.value();
+            int handValue2 = handIndicator2.value();
 
             if (handValue1 > handValue2) {
                 return hand1;

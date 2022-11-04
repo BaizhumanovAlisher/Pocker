@@ -1,12 +1,7 @@
 package kz.mathncode.baizhumanovalisher.poker.card;
 
-import java.util.Objects;
-
-public class Card {
-    private final Face face;
-    private final Suit suit;
-
-    public Card(Face face, Suit suit) {
+public record Card(Face face, Suit suit) {
+    public Card {
         if (face == null) {
             throw new IllegalArgumentException("Face is null.");
         }
@@ -15,20 +10,10 @@ public class Card {
             throw new IllegalArgumentException("Suit is null.");
         }
 
-        this.face = face;
-        this.suit = suit;
     }
 
     public String toString() {
-        return face.toString() + suit.toString();
-    }
-
-    public Face getFace() {
-        return face;
-    }
-
-    public Suit getSuit() {
-        return suit;
+        return face.toString() + suit;
     }
 
     @Override
@@ -37,10 +22,5 @@ public class Card {
         if (o == null || this.getClass() != o.getClass()) return false;
         Card card = (Card) o;
         return this.face == card.face && this.suit == card.suit;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(face, suit);
     }
 }

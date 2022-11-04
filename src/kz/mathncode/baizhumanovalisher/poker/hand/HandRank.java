@@ -26,28 +26,4 @@ public enum HandRank {
     public String toString() {
         return rank;
     }
-
-    public static HandRank chooseStrongHandRank(HandRank rank1, HandRank rank2) {
-        if (rank1 == null && rank2 == null) {
-            return null;
-        }
-
-        if (rank1 == null) {
-            return rank2;
-        }
-
-        if (rank2 == null) {
-            return rank1;
-        }
-
-        if (rank1 == rank2) {
-            return null;
-        }
-
-        if (rank1.getValue() > rank2.getValue()) {
-            return rank1;
-        } else {
-            return rank2;
-        }
-    }
 }

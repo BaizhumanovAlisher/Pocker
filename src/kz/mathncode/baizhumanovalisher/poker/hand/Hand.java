@@ -1,6 +1,7 @@
 package kz.mathncode.baizhumanovalisher.poker.hand;
 
 import kz.mathncode.baizhumanovalisher.poker.card.Card;
+import kz.mathncode.baizhumanovalisher.poker.hand.evaluate.HandEvaluate;
 
 import java.util.*;
 

@@ -1,22 +1,6 @@
 package kz.mathncode.baizhumanovalisher.poker.hand;
 
-public class HandIndicator {
-    private final HandRank rank;
-    private final int value;
-
-    public HandIndicator(HandRank rank, int value) {
-        this.rank = rank;
-        this.value = value;
-    }
-
-    public HandRank getRank() {
-        return rank;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
+public record HandIndicator(HandRank rank, int value) {
     public String toString() {
         return rank.toString();
     }

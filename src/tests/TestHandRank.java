@@ -19,7 +19,7 @@ public class TestHandRank {
         hand.add(c4);
         hand.add(c5);
 
-        boolean result = hand.evaluate().getRank() == rank;
+        boolean result = hand.evaluate().rank() == rank;
 
         String test = String.format("Test %-15s - %s", rank.toString(), result ? PASSED : FAILED);
 
