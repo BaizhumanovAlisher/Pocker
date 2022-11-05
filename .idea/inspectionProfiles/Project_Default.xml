@@ -1,0 +1,15 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="MavenPackageUpdate" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="excludeList">
+        <list>
+          <option value="org.junit.jupiter:junit-jupiter-engine" />
+          <option value="org.junit.jupiter:junit-jupiter-api" />
+          <option value="org.junit.jupiter:junit-jupiter-params" />
+          <option value="org.junit.platform:junit-platform-suite" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
