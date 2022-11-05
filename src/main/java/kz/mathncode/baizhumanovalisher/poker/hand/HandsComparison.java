@@ -18,6 +18,10 @@ public class HandsComparison {
         HandIndicator handIndicator1 = hand1.evaluate();
         HandIndicator handIndicator2 = hand2.evaluate();
 
+        if (handIndicator1.equals(handIndicator2)) {
+            return null;
+        }
+
         int handRank1 = handIndicator1.getRank().getValue();
         int handRank2 = handIndicator2.getRank().getValue();
 
