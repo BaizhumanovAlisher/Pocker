@@ -1,20 +1,12 @@
 package kz.mathncode.baizhumanovalisher.poker.hand;
 
 import kz.mathncode.baizhumanovalisher.poker.card.Card;
-import kz.mathncode.baizhumanovalisher.poker.hand.evaluate.Rank;
-import kz.mathncode.baizhumanovalisher.poker.hand.evaluate.Validation;
-import kz.mathncode.baizhumanovalisher.poker.hand.evaluate.Value;
+import kz.mathncode.baizhumanovalisher.poker.hand.evaluate.HandEvaluate;
 
 import java.util.*;
 
 public class Hand {
-    private static final Comparator<Card> comparator;
-
-    static {
-        comparator = Comparator.comparing(obj -> obj.getFace().getRank() * (-1));
-    }
     private final List<Card> hand;
-
     public Hand() {
         this.hand = new ArrayList<>();
     }
@@ -30,14 +22,7 @@ public class Hand {
     }
 
     public HandIndicator evaluate() {
-        Validation.handValidation(hand);
-
-        hand.sort(comparator);
-
-        HandRank rank = Rank.getRank(hand);
-        int value = Value.getValue(hand, rank);
-
-        return new HandIndicator(rank, value);
+        return HandEvaluate.evaluate(hand);
     }
 
     public List<Card> getList() {

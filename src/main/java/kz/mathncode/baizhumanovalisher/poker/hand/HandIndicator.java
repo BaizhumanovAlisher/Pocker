@@ -44,4 +44,25 @@ public final class HandIndicator {
         return Objects.hash(rank, value);
     }
 
+    public static int compare(HandIndicator h1, HandIndicator h2) {
+        int handRank1 = h1.getRank().getValue();
+        int handRank2 = h2.getRank().getValue();
+
+        if (handRank1 > handRank2) {
+            return 1;
+        } else if (handRank1 < handRank2) {
+            return -1;
+        } else {
+            int handValue1 = h1.getValue();
+            int handValue2 = h2.getValue();
+
+            if (handValue1 > handValue2) {
+                return 1;
+            } else if (handValue1 < handValue2) {
+                return -1;
+            }
+        }
+
+        return 0;
+    }
 }

@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Set;
 
 public class Validation {
-    private static final int correctHandSize = 5;
+    public static final int FiveCardHandSize = 5;
+    public static final int SevenCardHandSize = 7;
 
     public static void handValidation(List<Card> hand) {
         if (!isCorrectHandSize(hand)) {
@@ -22,7 +23,7 @@ public class Validation {
     }
 
     private static boolean isCorrectHandSize(List<Card> hand) {
-        return hand.size() == correctHandSize;
+        return hand.size() == FiveCardHandSize || hand.size() == SevenCardHandSize;
     }
 
     private static boolean hasDuplicates(List<Card> hand) {
