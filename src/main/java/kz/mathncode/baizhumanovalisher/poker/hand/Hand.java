@@ -2,6 +2,7 @@ package kz.mathncode.baizhumanovalisher.poker.hand;
 
 import kz.mathncode.baizhumanovalisher.poker.card.Card;
 import kz.mathncode.baizhumanovalisher.poker.hand.evaluate.HandEvaluate;
+import kz.mathncode.baizhumanovalisher.poker.hand.evaluate.Validation;
 
 import java.util.*;
 
@@ -21,11 +22,20 @@ public class Hand {
         hand.add(c5);
     }
 
+    public static int compare(Hand h1, Hand h2) {
+        Validation.checkHandsDuplicates(h1.getList(), h2.getList());
+
+        HandIndicator handIndicator1 = h1.evaluate();
+        HandIndicator handIndicator2 = h2.evaluate();
+
+        return HandIndicator.compare(handIndicator1, handIndicator2);
+    }
+
     public HandIndicator evaluate() {
         return HandEvaluate.evaluate(hand);
     }
 
-    public List<Card> getList() {
+    private List<Card> getList() {
         return hand;
     }
 

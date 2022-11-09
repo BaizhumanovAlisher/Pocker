@@ -2,7 +2,7 @@ package kz.mathncode.baizhumanovalisher.poker.card;
 
 import java.util.Objects;
 
-public final class Card {
+public class Card {
     private final Face face;
     private final Suit suit;
 

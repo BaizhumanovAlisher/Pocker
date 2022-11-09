@@ -2,7 +2,7 @@ package kz.mathncode.baizhumanovalisher.poker.hand;
 
 import java.util.Objects;
 
-public final class HandIndicator {
+public class HandIndicator {
     private final HandRank rank;
     private final int value;
 

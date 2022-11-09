@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HandsComparisonTest {
-    static void testHandsComparison(Hand winnerHand, Hand hand1, Hand hand2) {
-        Hand strongerHand = HandsComparison.chooseStrongHand(hand1, hand2);
-        assertEquals(winnerHand, strongerHand);
+class HandTest {
+    static void testHandsComparison(int num, Hand hand1, Hand hand2) {
+        int result = Hand.compare(hand1, hand2);
+        assertEquals(num, result);
     }
 
     @Test
@@ -32,7 +32,7 @@ class HandsComparisonTest {
         hand2.add(new Card(Face.FIVE, Suit.DIAMOND));
         hand2.add(new Card(Face.SIX, Suit.DIAMOND));
 
-        assertThrows(HandHasDuplicatesException.class, () -> HandsComparison.chooseStrongHand(hand1, hand2));
+        assertThrows(HandHasDuplicatesException.class, () -> Hand.compare(hand1, hand2));
     }
 
     @Test
@@ -53,7 +53,7 @@ class HandsComparisonTest {
         hand2.add(new Card(Face.FIVE, Suit.DIAMOND));
         hand2.add(new Card(Face.SIX, Suit.HEART));
 
-        assertThrows(HandHasDuplicatesException.class, () -> HandsComparison.chooseStrongHand(hand1, hand2));
+        assertThrows(HandHasDuplicatesException.class, () -> Hand.compare(hand1, hand2));
     }
 
     @Test
@@ -72,7 +72,7 @@ class HandsComparisonTest {
                 new Card(Face.TEN, Suit.HEART),
                 new Card(Face.EIGHT, Suit.HEART));
 
-        testHandsComparison(hand, hand, hand1);
+        testHandsComparison(1, hand, hand1);
     }
 
     @Test
@@ -93,7 +93,7 @@ class HandsComparisonTest {
                 new Card(Face.TEN, Suit.DIAMOND)
         );
 
-        testHandsComparison(null, hand, hand1);
+        testHandsComparison(0, hand, hand1);
 
         Hand hand2 = new Hand(
                 new Card(Face.KING, Suit.DIAMOND),
@@ -103,7 +103,7 @@ class HandsComparisonTest {
                 new Card(Face.NINE, Suit.DIAMOND)
         );
 
-        testHandsComparison(hand, hand, hand2);
+        testHandsComparison(1, hand, hand2);
     }
 
     @Test
@@ -122,7 +122,7 @@ class HandsComparisonTest {
                 new Card(Face.QUEEN, Suit.SPADE),
                 new Card(Face.EIGHT, Suit.HEART));
 
-        testHandsComparison(hand, hand, hand1);
+        testHandsComparison(1, hand, hand1);
     }
 
     @Test
@@ -141,7 +141,7 @@ class HandsComparisonTest {
                 new Card(Face.EIGHT, Suit.DIAMOND),
                 new Card(Face.EIGHT, Suit.HEART));
 
-        testHandsComparison(hand, hand, hand1);
+        testHandsComparison(1, hand, hand1);
     }
 
     @Test
@@ -162,7 +162,7 @@ class HandsComparisonTest {
                 new Card(Face.SEVEN, Suit.DIAMOND)
         );
 
-        testHandsComparison(null, hand, hand1);
+        testHandsComparison(0, hand, hand1);
 
         Hand hand2 = new Hand(
                 new Card(Face.SIX, Suit.DIAMOND),
@@ -172,7 +172,7 @@ class HandsComparisonTest {
                 new Card(Face.SEVEN, Suit.DIAMOND)
         );
 
-        testHandsComparison(hand, hand, hand2);
+        testHandsComparison(1, hand, hand2);
     }
 
     @Test
@@ -193,7 +193,7 @@ class HandsComparisonTest {
                 new Card(Face.SEVEN, Suit.SPADE)
         );
 
-        testHandsComparison(null, hand, hand1);
+        testHandsComparison(0, hand, hand1);
 
         Hand hand2 = new Hand(
                 new Card(Face.SIX, Suit.DIAMOND),
@@ -203,7 +203,7 @@ class HandsComparisonTest {
                 new Card(Face.SEVEN, Suit.SPADE)
         );
 
-        testHandsComparison(hand, hand, hand2);
+        testHandsComparison(1, hand, hand2);
     }
 
     @Test
@@ -222,7 +222,7 @@ class HandsComparisonTest {
                 new Card(Face.TEN, Suit.HEART),
                 new Card(Face.EIGHT, Suit.HEART));
 
-        testHandsComparison(hand, hand, hand1);
+        testHandsComparison(1, hand, hand1);
     }
 
     @Test
@@ -243,7 +243,7 @@ class HandsComparisonTest {
                 new Card(Face.KING, Suit.CLUB)
         );
 
-        testHandsComparison(null, hand, hand1);
+        testHandsComparison(0, hand, hand1);
 
         Hand hand2 = new Hand(
                 new Card(Face.EIGHT, Suit.CLUB),
@@ -252,7 +252,7 @@ class HandsComparisonTest {
                 new Card(Face.JACK, Suit.CLUB),
                 new Card(Face.TEN, Suit.CLUB));
 
-        testHandsComparison(hand, hand, hand2);
+        testHandsComparison(1, hand, hand2);
 
         Hand hand3 = new Hand(
                 new Card(Face.SEVEN, Suit.CLUB),
@@ -261,7 +261,7 @@ class HandsComparisonTest {
                 new Card(Face.JACK, Suit.CLUB),
                 new Card(Face.QUEEN, Suit.CLUB));
 
-        testHandsComparison(hand, hand, hand3);
+        testHandsComparison(1, hand, hand3);
 
         Hand hand4 = new Hand(
                 new Card(Face.EIGHT, Suit.CLUB),
@@ -271,7 +271,7 @@ class HandsComparisonTest {
                 new Card(Face.KING, Suit.CLUB)
         );
 
-        testHandsComparison(hand, hand, hand4);
+        testHandsComparison(1, hand, hand4);
     }
 
     @Test
@@ -290,7 +290,7 @@ class HandsComparisonTest {
                 new Card(Face.FIVE, Suit.SPADE),
                 new Card(Face.DEUCE, Suit.HEART));
 
-        testHandsComparison(hand, hand, hand1);
+        testHandsComparison(1, hand, hand1);
 
         Hand hand2 = new Hand(
                 new Card(Face.DEUCE, Suit.HEART),
@@ -299,7 +299,7 @@ class HandsComparisonTest {
                 new Card(Face.FIVE, Suit.SPADE),
                 new Card(Face.JACK, Suit.DIAMOND));
 
-        testHandsComparison(hand, hand, hand2);
+        testHandsComparison(1, hand, hand2);
     }
 
     @Test
@@ -318,6 +318,6 @@ class HandsComparisonTest {
                 new Card(Face.FIVE, Suit.SPADE),
                 new Card(Face.KING, Suit.DIAMOND));
 
-        testHandsComparison(hand1, hand1, hand2);
+        testHandsComparison(1, hand1, hand2);
     }
 }
